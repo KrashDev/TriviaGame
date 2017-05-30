@@ -1,0 +1,52 @@
+body {
+	background-image: url(../images/spaceship.jpg);
+	background-size: 100% 100%;
+	color:#ffffff;
+
+
+}
+
+#header {
+
+	font-weight:bold;
+	margin:20px;
+	padding:20px;
+	text-align:center;
+	color:#ffffff;
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 140px;
+
+}
+#timer {
+	color:#ffffff;
+	font-size: 35px;
+
+}
+
+.main {
+	color:#ffffff;
+	font-size: 15px;
+
+}
+
+#start {
+	box-shadow:2px 2px #333333;
+	padding:20px 50px 20px 50px;
+	font-size: 30px;
+	text-align:center;
+}
+
+#done {
+	box-shadow:2px 2px #333333;
+	padding:20px 50px 20px 50px;
+	font-size: 30px;
+	text-align:center;
+}
+
+#answers {
+	color:#ffffff;
+	font-size: 15px;
+}
+
+
+
