@@ -1,23 +1,47 @@
 $( document ).ready(function() {
    
    	var timer = $("#timer");
-   	timer = 5;
-	
+   	timer = 60;
+
+
+	//hides content until button is clicked
+   	$(".main").hide();
+   	$("#answers").hide();
+   	$("#done").hide();
+
 	$("#start").click(function() {
 		$("#start").hide("#timer");
-
-		setInterval(function(){ 
-			sixtySeconds(timer--); }, 1000);
-
-		if (timer == 0) {
-			$("#done").hide("#answers")
-		}
+		$(".main").show();
+		$("#done").show();
+		
 
 
-		function sixtySeconds() {
-        	$("#timer").html("60 seconds on the clock!");
-        	console.log("60 seconds left");
+		setInterval(function() {
+		    $("#timer").text((timer--) + " Seconds left!");
+		}, 1000);
 
-    	}
+
+			if (timer == 0) {
+				$(".main").hide("#done")
+			}
+
+	        setTimeout(function(){
+	        thirtySeconds();
+	     	}, 30000);
+
+	     	function thirtySeconds() {
+	        $("#shout").html("30 seconds left! HURRY!");
+	        console.log("30 seconds left!");
+
+	    	}
+
     })
+
+    $("#done").click(function() {
+    	$(".main").hide();
+   		$("#done").hide();
+   		$("#timer").hide();
+    	$("#answers").show();
+	})
+
 });
