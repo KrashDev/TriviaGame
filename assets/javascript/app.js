@@ -1,7 +1,7 @@
 $( document ).ready(function() {
    
    	var timer = $("#timer");
-   	timer = 5;
+   	timer = 60;
 
 
 	//hides content until button is clicked
@@ -17,10 +17,10 @@ $( document ).ready(function() {
 		$("#done").show();
 
 		setTimeout(function(){
-        	fiveSeconds();
-      	}, 6000);
+        	sixtySeconds();
+      	}, 60000);
 
-      	function fiveSeconds() {
+      	function sixtySeconds() {
 				clearInterval();
 				$("#timer").hide();
 				$(".main").hide();
@@ -35,60 +35,42 @@ $( document ).ready(function() {
 
 			
 
-	        setTimeout(function(){
-	        thirtySeconds();
-	     	}, 30000);
+		setTimeout(function(){
+			thirtySeconds();
+		}, 30000);
 
-	     	function thirtySeconds() {
-	        $("#shout").html("30 seconds left! HURRY!");
-	        console.log("30 seconds left!");
-
-	    	}
-
-    })
+		function thirtySeconds() {
+			$("#shout").html("30 seconds left! HURRY!");
+		}
+		
+		setTimeout(function(){
+			$("#shout").hide();
+		}, 35000);
+		
+		
+	})
 
     $("#done").click(function() {
-
-    	// scoreTotal = 0;
-
-    	// if $("#q1" == 0);
-    	// 	scoreTotal = 0;
-    	// 	else {
-    	// 		scoreTotal++;
-    	// 	}
-
-    	// if $("#q2" == 0);
-    	// 	scoreTotal = 0;
-    	// 	else {
-    	// 		scoreTotal++;
-    	// 	}
-
-    	// if $("#q3" == 0);
-    	// 	scoreTotal = 0;
-    	// 	else {
-    	// 		scoreTotal++;
-    	// 	}
-
-    	// if $("#q4" == 0);
-    	// 	scoreTotal = 0;
-    	// 	else {
-    	// 		scoreTotal++;
-    	// 	}
-    		
-    	// if $("#q5" == 0);
-    	// 	scoreTotal = 0;
-    	// 	else {
-    	// 		scoreTotal++;
-    	// 	}				
-
-    	// var question1 = ($("input[@name=q1]:checked").val() != "1");
-    	// var question2 = ($("input[@name=q2]:checked").val() != "1");
-    	// var question3 = ($("input[@name=q3]:checked").val() != "1");
-    	// var question4 = ($("input[@name=q4]:checked").val() != "1");
-    	// var question5 = ($("input[@name=q5]:checked").val() != "1");
-
+			
+			var inputs = document.getElementsByTagName('input');
+			var correct = 0;
+			var checkedAnswers = 0;
+			for (var i = 0; i < inputs.length; i++) {
+				if (inputs[i].type === 'radio' && inputs[i].checked) {
+					// get value, set checked flag or do whatever you need to
+					correct = parseInt(inputs[i].value) + correct;
+					checkedAnswers = checkedAnswers + 1;
+				}
+			}
+			
+			$("#correct").html("Correct Answers: "+correct);
+			$("#incorrect").html("Incorrect Answers: "+(5-correct));
+			$("#unanswered").html("Unanswered Questions: "+(5-checkedAnswers));
+			
+			console.log(correct);			
     	$(".main").hide();
    		$("#done").hide();
+			
    		$("#timer").hide();
     	$(".results").show();
 	})
